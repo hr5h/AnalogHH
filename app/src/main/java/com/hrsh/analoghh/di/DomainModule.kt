@@ -1,7 +1,7 @@
 package com.hrsh.analoghh.di
 
-import com.hrsh.analoghh.domain.SubscribeResponseUseCase
-import com.hrsh.analoghh.domain.SubscribeResponseUseCaseImpl
+import com.hrsh.analoghh.domain.usecases.SubscribeResponseUseCase
+import com.hrsh.analoghh.domain.usecases.SubscribeResponseUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

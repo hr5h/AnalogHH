@@ -1,4 +1,4 @@
-package com.hrsh.analoghh.data
+package com.hrsh.analoghh.data.utils
 
 import android.content.Context
 import android.net.ConnectivityManager

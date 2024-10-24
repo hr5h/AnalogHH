@@ -1,19 +1,14 @@
 package com.hrsh.analoghh.presentation
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hrsh.analoghh.domain.Offer
-import com.hrsh.analoghh.domain.Response
-import com.hrsh.analoghh.domain.SubscribeResponseUseCase
-import com.hrsh.analoghh.domain.Vacancy
+import com.hrsh.analoghh.domain.entities.Offer
+import com.hrsh.analoghh.domain.usecases.SubscribeResponseUseCase
+import com.hrsh.analoghh.domain.entities.Vacancy
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.firstOrNull
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,8 +24,9 @@ class MainViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            _vacancies.value = subscribeResponseUseCase.invoke().vacancies
-            _offers.value = subscribeResponseUseCase.invoke().offers
+            val response = subscribeResponseUseCase.invoke()
+            _offers.value = response.offers
+            _vacancies.value = response.vacancies
         }
     }
 }

@@ -1,8 +1,7 @@
-package com.hrsh.analoghh.domain
+package com.hrsh.analoghh.domain.usecases
 
-import android.util.Log
 import com.hrsh.analoghh.data.repositories.ResponseRepository
-import kotlinx.coroutines.flow.Flow
+import com.hrsh.analoghh.domain.entities.Response
 import javax.inject.Inject
 
 interface SubscribeResponseUseCase {

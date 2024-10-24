@@ -6,9 +6,9 @@ import kotlinx.serialization.Serializable
 data class VacancyApi(
     val lookingNumber: Int?,
     val title: String,
-    //val address: String,
+    val address: AddressApi,
     val company: String,
-    //val experience: String?,
+    val experience: ExperienceApi,
     val publishedDate: String,
     val isFavorite: Boolean,
 )
