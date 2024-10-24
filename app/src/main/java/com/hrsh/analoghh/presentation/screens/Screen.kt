@@ -1,4 +1,4 @@
-package com.hrsh.analoghh.presentation
+package com.hrsh.analoghh.presentation.screens
 
 sealed class Screen(val route: String) {
     data object SearchScreen: Screen("search")

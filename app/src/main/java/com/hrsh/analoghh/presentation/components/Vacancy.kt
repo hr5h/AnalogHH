@@ -1,4 +1,4 @@
-package com.hrsh.analoghh.presentation
+package com.hrsh.analoghh.presentation.components
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
@@ -27,8 +27,6 @@ import com.hrsh.analoghh.ui.theme.Gray1
 import com.hrsh.analoghh.ui.theme.Gray3
 import com.hrsh.analoghh.ui.theme.Green
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 @SuppressLint("SimpleDateFormat")

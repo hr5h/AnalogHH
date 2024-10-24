@@ -22,11 +22,15 @@ class MainViewModel @Inject constructor(
     private val _vacancies: MutableStateFlow<List<Vacancy>> = MutableStateFlow(emptyList())
     val vacancies: StateFlow<List<Vacancy>> = _vacancies.asStateFlow()
 
+    private val _favoriteVacancies: MutableStateFlow<List<Vacancy>> = MutableStateFlow(emptyList())
+    val favoriteVacancies: StateFlow<List<Vacancy>> = _favoriteVacancies.asStateFlow()
+
     init {
         viewModelScope.launch {
             val response = subscribeResponseUseCase.invoke()
             _offers.value = response.offers
             _vacancies.value = response.vacancies
+            _favoriteVacancies.value = vacancies.value.filter { !it.isFavorite }
         }
     }
 }

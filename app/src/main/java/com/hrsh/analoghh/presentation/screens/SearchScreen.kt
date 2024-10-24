@@ -1,18 +1,14 @@
-package com.hrsh.analoghh.presentation
+package com.hrsh.analoghh.presentation.screens
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -21,30 +17,23 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import androidx.navigation.NavOptions
 import com.hrsh.analoghh.R
 import com.hrsh.analoghh.domain.entities.Offer
 import com.hrsh.analoghh.domain.entities.Vacancy
+import com.hrsh.analoghh.presentation.components.Menu
+import com.hrsh.analoghh.presentation.components.Offer
+import com.hrsh.analoghh.presentation.components.Search
+import com.hrsh.analoghh.presentation.components.Vacancy
 import com.hrsh.analoghh.presentation.utils.getNoun
 import com.hrsh.analoghh.ui.theme.Blue
-import com.hrsh.analoghh.ui.theme.Gray2
-import com.hrsh.analoghh.ui.theme.Gray4
-import kotlin.math.abs
 
 const val COUNT_VACANCIES = 3
 
@@ -53,6 +42,7 @@ fun SearchScreen(
     navController: NavHostController,
     offers: List<Offer>,
     vacancies: List<Vacancy>,
+    countFavoriteVacancies: Int
 ) {
     Box(
         modifier = Modifier
@@ -131,7 +121,7 @@ fun SearchScreen(
             item { Spacer(modifier = Modifier.height(50.dp)) }
         }
         Column(modifier = Modifier.align(Alignment.BottomCenter)) {
-            Menu(navController)
+            Menu(navController, countFavoriteVacancies)
         }
     }
 }
