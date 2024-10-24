@@ -23,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.hrsh.analoghh.R
+import com.hrsh.analoghh.domain.entities.Favorite
 import com.hrsh.analoghh.domain.entities.Vacancy
 import com.hrsh.analoghh.presentation.components.Menu
 import com.hrsh.analoghh.presentation.components.SearchBack
@@ -34,7 +35,9 @@ import com.hrsh.analoghh.ui.theme.Blue
 fun VacanciesScreen(
     navController: NavHostController,
     vacancies: List<Vacancy>,
-    countFavoriteVacancies: Int
+    countFavoriteVacancies: Int,
+    insertFavorite: (Favorite) -> Unit,
+    deleteFavorite: (Favorite) -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -79,13 +82,16 @@ fun VacanciesScreen(
             }
             items(vacancies) { vacancy ->
                 Vacancy(
+                    id = null,
                     lookingNumber = vacancy.lookingNumber,
                     isFavorite = vacancy.isFavorite,
                     title = vacancy.title,
                     town = vacancy.address,
                     company = vacancy.company,
                     experience = vacancy.experience,
-                    publishedDate = vacancy.publishedDate
+                    publishedDate = vacancy.publishedDate,
+                    insertFavorite,
+                    deleteFavorite
                 )
             }
             item { Spacer(modifier = Modifier.height(50.dp)) }

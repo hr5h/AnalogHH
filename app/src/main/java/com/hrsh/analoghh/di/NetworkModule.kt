@@ -1,6 +1,6 @@
 package com.hrsh.analoghh.di
 
-import com.hrsh.analoghh.data.services.ResponseService
+import com.hrsh.analoghh.data.network.services.ResponseService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

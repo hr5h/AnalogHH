@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.hrsh.analoghh.R
+import com.hrsh.analoghh.domain.entities.Favorite
 import com.hrsh.analoghh.domain.entities.Offer
 import com.hrsh.analoghh.domain.entities.Vacancy
 import com.hrsh.analoghh.presentation.components.Menu
@@ -42,7 +43,9 @@ fun SearchScreen(
     navController: NavHostController,
     offers: List<Offer>,
     vacancies: List<Vacancy>,
-    countFavoriteVacancies: Int
+    countFavoriteVacancies: Int,
+    insertFavorite: (Favorite) -> Unit,
+    deleteFavorite: (Favorite) -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -84,13 +87,16 @@ fun SearchScreen(
             }
             items(vacancies.take(COUNT_VACANCIES)) { vacancy ->
                 Vacancy(
+                    id = null,
                     lookingNumber = vacancy.lookingNumber,
                     isFavorite = vacancy.isFavorite,
                     title = vacancy.title,
                     town = vacancy.address,
                     company = vacancy.company,
                     experience = vacancy.experience,
-                    publishedDate = vacancy.publishedDate
+                    publishedDate = vacancy.publishedDate,
+                    insertFavorite,
+                    deleteFavorite
                 )
             }
             if (vacancies.isNotEmpty()) {

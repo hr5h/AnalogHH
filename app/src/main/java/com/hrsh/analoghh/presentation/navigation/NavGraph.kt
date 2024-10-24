@@ -1,10 +1,11 @@
-package com.hrsh.analoghh.presentation
+package com.hrsh.analoghh.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.hrsh.analoghh.presentation.main.MainViewModel
 import com.hrsh.analoghh.presentation.screens.FavoriteScreen
 import com.hrsh.analoghh.presentation.screens.MessageScreen
 import com.hrsh.analoghh.presentation.screens.ProfileScreen
@@ -20,13 +21,13 @@ fun NavGraph(navController: NavHostController, viewModel: MainViewModel) {
     val favoriteVacancies = viewModel.favoriteVacancies.collectAsState().value
     NavHost(navController = navController, startDestination = Screen.SearchScreen.route){
         composable(route = Screen.SearchScreen.route) {
-            SearchScreen(navController, offers, vacancies, favoriteVacancies.size)
+            SearchScreen(navController, offers, vacancies, favoriteVacancies.size, viewModel::insertFavorite, viewModel::deleteFavorite)
         }
         composable(route = Screen.VacanciesScreen.route) {
-            VacanciesScreen(navController, vacancies, favoriteVacancies.size)
+            VacanciesScreen(navController, vacancies, favoriteVacancies.size, viewModel::insertFavorite, viewModel::deleteFavorite)
         }
         composable(route = Screen.FavoriteScreen.route) {
-            FavoriteScreen(navController, favoriteVacancies)
+            FavoriteScreen(navController, favoriteVacancies, viewModel::insertFavorite, viewModel::deleteFavorite)
         }
         composable(route = Screen.ResponseScreen.route) {
             ResponseScreen(navController, favoriteVacancies.size)

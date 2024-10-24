@@ -1,6 +1,6 @@
-package com.hrsh.analoghh.data.mappers
+package com.hrsh.analoghh.data.network.mappers
 
-import com.hrsh.analoghh.data.entities.ResponseApi
+import com.hrsh.analoghh.data.network.entities.ResponseApi
 import com.hrsh.analoghh.domain.entities.Offer
 import com.hrsh.analoghh.domain.entities.Response
 import com.hrsh.analoghh.domain.entities.Vacancy

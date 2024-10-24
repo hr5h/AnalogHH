@@ -1,4 +1,4 @@
-package com.hrsh.analoghh.data.entities
+package com.hrsh.analoghh.data.network.entities
 
 import kotlinx.serialization.Serializable
 

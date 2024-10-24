@@ -1,6 +1,6 @@
-package com.hrsh.analoghh.data.services
+package com.hrsh.analoghh.data.network.services
 
-import com.hrsh.analoghh.data.entities.ResponseApi
+import com.hrsh.analoghh.data.network.entities.ResponseApi
 import retrofit2.http.GET
 
 interface ResponseService {
