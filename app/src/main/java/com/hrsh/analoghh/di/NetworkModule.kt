@@ -30,5 +30,5 @@ object NetworkModule {
         return retrofit.create(ResponseService::class.java)
     }
 
-    val BASE_URL = "https://raw.githubusercontent.com/hr5h/hrsh.github.io/refs/heads/main/api/"
+    private const val BASE_URL = "https://raw.githubusercontent.com/hr5h/AnalogHH/refs/heads/master/"
 }
